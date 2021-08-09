@@ -5,8 +5,10 @@ import org.myddd.java.distributed.api.IDGenerateApplication;
 import java.util.UUID;
 
 public class SnowflakeGenerateApplication implements IDGenerateApplication {
+
+    private SnowflakeDistributeId snowflakeDistributeId = new SnowflakeDistributeId(0,0);
     @Override
-    public String nextId() {
-        return UUID.randomUUID().toString();
+    public Long nextId() {
+        return snowflakeDistributeId.nextId();
     }
 }

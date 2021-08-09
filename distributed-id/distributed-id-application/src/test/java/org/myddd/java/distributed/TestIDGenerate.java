@@ -11,7 +11,7 @@ class TestIDGenerate {
 
     @Test
     void testGenerateId(){
-        String nextId = idGenerateApplication.nextId();
-        Assertions.assertNotNull(nextId);
+        Long nextId = idGenerateApplication.nextId();
+        Assertions.assertTrue(nextId > 0);
     }
 }

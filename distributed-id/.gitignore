@@ -1,9 +1,0 @@
-.gradle
-.idea
-**/*/build
-.gradle
-**/*/build
-.idea
-**/*.class
-build
-gradle
