@@ -1,6 +1,5 @@
 plugins {
     `java-library`
-    id("org.springframework.boot")
 }
 
 group = "org.myddd.java.document"
@@ -10,15 +9,9 @@ tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
-
 dependencies {
 
-    implementation(project(":document:document-domain"))
-    implementation(project(":document:document-infra"))
     implementation(project(":document:document-api"))
-    implementation(project(":document:document-application"))
-
-    implementation("org.springframework.boot:spring-boot-starter-web:${rootProject.extra["spring.boot"]}")
 
     implementation("org.myddd:myddd-utils:${rootProject.extra["myddd_version"]}")
     implementation("org.myddd:myddd-domain:${rootProject.extra["myddd_version"]}")

@@ -1,6 +1,5 @@
 plugins {
     `java-library`
-    id("org.springframework.boot")
 }
 
 group = "org.myddd.java.document"
@@ -9,7 +8,6 @@ version = rootProject.extra["projectVersion"]!!
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
-
 
 dependencies {
 
@@ -23,14 +21,6 @@ dependencies {
     implementation("org.myddd:myddd-utils:${rootProject.extra["myddd_version"]}")
     implementation("org.myddd:myddd-domain:${rootProject.extra["myddd_version"]}")
     implementation("org.myddd:myddd-ioc-spring:${rootProject.extra["myddd_version"]}")
-
-
-    implementation("org.apache.dubbo:dubbo:${rootProject.extra["dubbo_version"]}")
-
-    implementation("javax.xml.bind:jaxb-api:2.3.0")
-    implementation("com.sun.xml.bind:jaxb-impl:2.3.0")
-    implementation("com.sun.xml.bind:jaxb-core:2.3.0")
-    implementation("javax.activation:activation:1.1.1")
 
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")

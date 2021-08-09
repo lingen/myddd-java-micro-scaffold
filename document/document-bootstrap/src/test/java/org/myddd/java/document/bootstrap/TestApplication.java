@@ -1,15 +1,17 @@
-package org.myddd.java.distributed.bootstrap;
+package org.myddd.java.document.bootstrap;
 
-import org.myddd.java.distributed.bootstrap.Application;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.myddd.domain.InstanceFactory;
 import org.myddd.ioc.spring.SpringInstanceProvider;
+import org.myddd.java.document.api.DocumentApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootTest(classes = Application.class)
-public abstract class AbstractDocumentTest {
+class TestApplication {
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -17,6 +19,12 @@ public abstract class AbstractDocumentTest {
     @BeforeEach
     public void beforeClass(){
         InstanceFactory.setInstanceProvider(SpringInstanceProvider.createInstance(applicationContext));
+    }
+
+    @Test
+    void testStart(){
+        DocumentApplication documentApplication = InstanceFactory.getInstance(DocumentApplication.class);
+        Assertions.assertNotNull(documentApplication);
     }
 
 }

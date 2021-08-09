@@ -15,8 +15,7 @@ import java.util.UUID;
 
 class TestDocumentApplication extends AbstractDocumentTest {
 
-    @Inject
-    private DocumentApplication documentApplication;
+    private DocumentApplication documentApplication = new DocumentApplicationImpl();
 
     @Test
     void testCreateRootDir(){
