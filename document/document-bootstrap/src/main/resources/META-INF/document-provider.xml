@@ -9,11 +9,14 @@
 
     <dubbo:application name="document-provider"/>
 
+    <dubbo:protocol port="-1" name="dubbo"/>
     <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />
 
     <dubbo:provider token="true"/>
 
     <bean id="documentApplication" class="org.myddd.java.document.application.DocumentApplicationImpl"/>
     <dubbo:service interface="org.myddd.java.document.api.DocumentApplication" ref="documentApplication"/>
+
+    <dubbo:reference id="distributedApplication" interface="org.myddd.java.distributed.api.IDGenerateApplication"/>
 
 </beans>

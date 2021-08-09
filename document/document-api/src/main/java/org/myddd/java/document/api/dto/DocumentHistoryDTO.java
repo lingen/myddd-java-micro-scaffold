@@ -1,6 +1,8 @@
 package org.myddd.java.document.api.dto;
 
-public class DocumentHistoryDTO {
+import java.io.Serializable;
+
+public class DocumentHistoryDTO implements Serializable {
 
 
 

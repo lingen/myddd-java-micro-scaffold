@@ -7,10 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"org.myddd","org.myddd.java.document"})
 @EntityScan(basePackages = {"org.myddd","org.myddd.java.document"})
+@ImportResource("classpath:META-INF/distributed-provider.xml")
 public class Application {
 
     public static void main(String[] args) {

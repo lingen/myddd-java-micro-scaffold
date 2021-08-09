@@ -1,5 +1,6 @@
 package org.myddd.java.document.domain.core;
 
+import org.myddd.domain.BaseDistributedEntity;
 import org.myddd.domain.BaseIDEntity;
 import org.myddd.domain.InstanceFactory;
 import org.myddd.utils.Assert;
@@ -10,7 +11,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "document")
-public class Document extends BaseIDEntity {
+public class Document extends BaseDistributedEntity {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="space_id")
@@ -158,7 +159,6 @@ public class Document extends BaseIDEntity {
     }
 
     public Document createDocument(){
-        Assert.isNull(this.getId());
         Assert.notNull(this.mediaId,"媒体ID不能为空");
         Assert.notNull(this.name,"文件名不能为空");
         this.type = DocumentType.FILE;

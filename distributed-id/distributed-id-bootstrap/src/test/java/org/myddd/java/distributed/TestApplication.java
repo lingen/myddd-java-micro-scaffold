@@ -26,7 +26,7 @@ public class TestApplication {
         IDGenerateApplication idGenerateApplication = InstanceFactory.getInstance(IDGenerateApplication.class);
         Assertions.assertNotNull(idGenerateApplication);
 
-        String nextId = idGenerateApplication.nextId();
+        Long nextId = idGenerateApplication.nextId();
         Assertions.assertNotNull(nextId);
     }
 

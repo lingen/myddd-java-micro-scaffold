@@ -1,5 +1,6 @@
 plugins {
     `java-library`
+    id("org.springframework.boot")
 }
 
 group = "org.myddd.java.distributed"

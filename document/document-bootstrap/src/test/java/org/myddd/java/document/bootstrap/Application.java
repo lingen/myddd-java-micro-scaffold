@@ -1,4 +1,4 @@
-package org.myddd.java.distributed;
+package org.myddd.java.document.bootstrap;
 
 import org.myddd.domain.InstanceFactory;
 import org.myddd.ioc.spring.SpringInstanceProvider;
@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"org.myddd","org.myddd.java.distributed"})
-@EntityScan(basePackages = {"org.myddd","org.myddd.java.distributed"})
+@ComponentScan(basePackages = {"org.myddd","org.myddd.java.document"})
+@EntityScan(basePackages = {"org.myddd","org.myddd.java.document"})
 @ImportResource("classpath:META-INF/distributed-provider.xml")
 public class Application {
 

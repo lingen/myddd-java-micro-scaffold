@@ -16,6 +16,11 @@ dependencies {
     implementation(project(":document:document-api"))
     implementation(project(":document:document-application"))
 
+    implementation(project(":distributed-id:distributed-id-domain"))
+    implementation(project(":distributed-id:distributed-id-infra"))
+    implementation(project(":distributed-id:distributed-id-api"))
+    implementation(project(":distributed-id:distributed-id-application"))
+
     implementation("org.springframework.boot:spring-boot-starter-web:${rootProject.extra["spring.boot"]}")
 
     implementation("org.myddd:myddd-utils:${rootProject.extra["myddd_version"]}")

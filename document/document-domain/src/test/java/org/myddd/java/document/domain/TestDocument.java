@@ -21,15 +21,6 @@ class TestDocument extends AbstractDocumentTest {
         Document document = createDocument();
         Document createdDocument = document.createDocument();
         Assertions.assertTrue(createdDocument.getId() > 0);
-        Assertions.assertThrows(RuntimeException.class,() -> {
-            createdDocument.createDocument();
-        });
-
-        Document anotherDocument = createDocument();
-        anotherDocument.setParentId(-1l);
-        Assertions.assertThrows(RuntimeException.class,() -> {
-            createdDocument.createDocument();
-        });
     }
 
     @Transactional

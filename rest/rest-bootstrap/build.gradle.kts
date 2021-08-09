@@ -14,6 +14,7 @@ val localBuild = if(project.hasProperty("local")) project.property("local") as S
 dependencies {
 
     implementation(project(":document:document-api"))
+    implementation(project(":distributed-id:distributed-id-api"))
 
     implementation("org.springframework.boot:spring-boot-starter-web:${rootProject.extra["spring.boot"]}")
 
@@ -27,7 +28,6 @@ dependencies {
     }else{
         implementation(project(":rest:rest-micro-strategy"))
     }
-
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")
     implementation("com.h2database:h2:${rootProject.extra["h2_version"]}")

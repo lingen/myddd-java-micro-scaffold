@@ -1,6 +1,8 @@
 package org.myddd.java.document.api.dto;
 
-public class DocumentSpaceDTO {
+import java.io.Serializable;
+
+public class DocumentSpaceDTO implements Serializable {
 
     private Long id;
 

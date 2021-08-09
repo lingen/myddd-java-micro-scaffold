@@ -36,5 +36,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")
     implementation("com.h2database:h2:${rootProject.extra["h2_version"]}")
     testImplementation("org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final")
+    testImplementation(project(":distributed-id:distributed-id-application"))
 
 }
