@@ -1,5 +1,5 @@
 package org.myddd.java.distributed.api;
 
-public interface IDGenerate {
+public interface IDGenerateApplication {
     String nextId();
 }

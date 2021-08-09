@@ -1,12 +1,10 @@
 package org.myddd.java.distributed.application;
 
-import org.myddd.java.distributed.api.IDGenerate;
+import org.myddd.java.distributed.api.IDGenerateApplication;
 
-import javax.inject.Named;
 import java.util.UUID;
 
-@Named
-public class UUIDGenerate implements IDGenerate {
+public class SnowflakeGenerateApplication implements IDGenerateApplication {
     @Override
     public String nextId() {
         return UUID.randomUUID().toString();
