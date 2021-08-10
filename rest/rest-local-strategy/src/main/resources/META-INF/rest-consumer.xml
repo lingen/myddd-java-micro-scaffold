@@ -7,6 +7,6 @@
     <context:property-placeholder/>
 
     <bean id="documentApplication" class="org.myddd.java.document.application.DocumentApplicationImpl"/>
-    <bean id="distributedIdApplication" class="org.myddd.java.distributed.application.SnowflakeGenerateApplication"/>
+    <bean id="distributedIdApplication" class="org.myddd.java.distributed.application.DistributedIdApplicationImpl"/>
 
 </beans>

@@ -1,8 +1,9 @@
 package org.myddd.java.document.domain.core;
 
+import com.google.protobuf.Empty;
 import org.myddd.domain.IDGenerate;
 import org.myddd.domain.InstanceFactory;
-import org.myddd.java.distributed.api.IDGenerateApplication;
+import org.myddd.java.distributed.api.DistributedIdApplication;
 
 import javax.inject.Named;
 import java.util.Objects;
@@ -11,18 +12,17 @@ import java.util.Objects;
 public class DocumentIDGenerate implements IDGenerate {
 
 
-    private static IDGenerateApplication idGenerateApplication;
+    private static DistributedIdApplication distributedIdApplication;
 
-    private static IDGenerateApplication getIdGenerateApplication(){
-        if (Objects.isNull(idGenerateApplication)){
-            idGenerateApplication = InstanceFactory.getInstance(IDGenerateApplication.class);
+    private static DistributedIdApplication getIdGenerateApplication(){
+        if (Objects.isNull(distributedIdApplication)){
+            distributedIdApplication = InstanceFactory.getInstance(DistributedIdApplication.class);
         }
-        return idGenerateApplication;
+        return distributedIdApplication;
     }
-
 
     @Override
     public Long nextId() {
-        return getIdGenerateApplication().nextId();
+        return getIdGenerateApplication().distributedId(Empty.getDefaultInstance()).getValue();
     }
 }

@@ -6,7 +6,7 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder/>
 
-    <bean id="iDGenerate" class="org.myddd.java.distributed.application.SnowflakeGenerateApplication"/>
+    <bean id="distributedIdApplication" class="org.myddd.java.distributed.application.DistributedIdApplicationImpl"/>
 
     <bean id="documentApplication" class="org.myddd.java.document.application.DocumentApplicationImpl"/>
 

@@ -17,6 +17,6 @@
     <bean id="documentApplication" class="org.myddd.java.document.application.DocumentApplicationImpl"/>
     <dubbo:service interface="org.myddd.java.document.api.DocumentApplication" ref="documentApplication"/>
 
-    <dubbo:reference id="distributedApplication" interface="org.myddd.java.distributed.api.IDGenerateApplication"/>
+    <dubbo:reference id="distributedIdApplication" interface="org.myddd.java.distributed.api.DistributedIdApplication"/>
 
 </beans>

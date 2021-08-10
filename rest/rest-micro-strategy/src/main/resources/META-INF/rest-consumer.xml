@@ -15,6 +15,6 @@
     <dubbo:provider token="true"/>
 
     <dubbo:reference id="documentApplication" interface="org.myddd.java.document.api.DocumentApplication"/>
-    <dubbo:reference id="distributedApplication" interface="org.myddd.java.distributed.api.IDGenerateApplication"/>
+    <dubbo:reference id="distributedApplication" interface="org.myddd.java.distributed.api.DistributedIdApplication"/>
 
 </beans>

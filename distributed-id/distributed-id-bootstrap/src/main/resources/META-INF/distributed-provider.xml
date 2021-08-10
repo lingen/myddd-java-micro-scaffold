@@ -14,7 +14,7 @@
 
     <dubbo:provider token="true"/>
 
-    <bean id="iDGenerate" class="org.myddd.java.distributed.application.SnowflakeGenerateApplication"/>
-    <dubbo:service interface="org.myddd.java.distributed.api.IDGenerateApplication" ref="iDGenerate"/>
+    <bean id="distributedIdApplication" class="org.myddd.java.distributed.application.DistributedIdApplicationImpl"/>
+    <dubbo:service interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedIdApplication"/>
 
 </beans>
