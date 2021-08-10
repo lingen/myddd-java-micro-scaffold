@@ -2,7 +2,7 @@ plugins {
     `java-library`
 }
 
-group = "cc.lingenliu.document"
+group = "org.myddd.java.document"
 version = rootProject.extra["projectVersion"]!!
 
 tasks.withType<Test>().configureEach {
