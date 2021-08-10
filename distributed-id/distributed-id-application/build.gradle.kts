@@ -46,7 +46,7 @@ protobuf {
     }
     plugins {
         id("myddd-dubbo") {
-            artifact = "org.myddd.plugin:dubbo-grpc-gradle-plugin:0.0.4"
+            artifact = "org.myddd.plugin:dubbo-protobuf-gradle-plugin:0.0.5"
         }
     }
     generateProtoTasks {

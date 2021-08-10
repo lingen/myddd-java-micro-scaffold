@@ -2,7 +2,6 @@ package org.myddd.java.distributed.application;
 
 import com.google.protobuf.Empty;
 import com.google.protobuf.Int64Value;
-import io.grpc.stub.StreamObserver;
 import org.myddd.java.distributed.api.DistributedIdApplication;
 
 import java.util.concurrent.CompletableFuture;
