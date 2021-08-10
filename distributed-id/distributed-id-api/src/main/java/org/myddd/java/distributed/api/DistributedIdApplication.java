@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
     comments = "Source: DistributedApplication.proto")
     public interface DistributedIdApplication {
     static final String JAVA_SERVICE_NAME = "org.myddd.java.distributed.api.DistributedIdApplication";
-    static final String SERVICE_NAME = "org.myddd.vertx.distributed.api.DistributedIdApplication";
+    static final String SERVICE_NAME = "org.myddd.distributed.distributed.api.DistributedIdApplication";
         // FIXME, initialize Dubbo3 stub when interface loaded, thinking of new ways doing this.
         static final boolean inited = DistributedIdApplicationDubbo.init();
 

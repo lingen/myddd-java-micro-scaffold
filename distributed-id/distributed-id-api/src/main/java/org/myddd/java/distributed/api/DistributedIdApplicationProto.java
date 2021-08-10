@@ -23,14 +23,14 @@ public final class DistributedIdApplicationProto {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\034DistributedApplication.proto\022\037org.mydd" +
-      "d.vertx.distributed.api\032\033google/protobuf" +
-      "/empty.proto\032\036google/protobuf/wrappers.p" +
-      "roto2b\n\030DistributedIdApplication\022F\n\rdist" +
-      "ributedId\022\026.google.protobuf.Empty\032\033.goog" +
-      "le.protobuf.Int64Value\"\000BA\n\036org.myddd.ja" +
-      "va.distributed.apiB\035DistributedIdApplica" +
-      "tionProtoP\001b\006proto3"
+      "\n\034DistributedApplication.proto\022%org.mydd" +
+      "d.distributed.distributed.api\032\033google/pr" +
+      "otobuf/empty.proto\032\036google/protobuf/wrap" +
+      "pers.proto2b\n\030DistributedIdApplication\022F" +
+      "\n\rdistributedId\022\026.google.protobuf.Empty\032" +
+      "\033.google.protobuf.Int64Value\"\000BA\n\036org.my" +
+      "ddd.java.distributed.apiB\035DistributedIdA" +
+      "pplicationProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
