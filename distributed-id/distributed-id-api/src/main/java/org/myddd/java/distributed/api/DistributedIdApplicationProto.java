@@ -4,43 +4,47 @@
 package org.myddd.java.distributed.api;
 
 public final class DistributedIdApplicationProto {
-  private DistributedIdApplicationProto() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private DistributedIdApplicationProto() {
+    }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    String[] descriptorData = {
-      "\n\034DistributedApplication.proto\022%org.mydd" +
-      "d.distributed.distributed.api\032\033google/pr" +
-      "otobuf/empty.proto\032\036google/protobuf/wrap" +
-      "pers.proto2b\n\030DistributedIdApplication\022F" +
-      "\n\rdistributedId\022\026.google.protobuf.Empty\032" +
-      "\033.google.protobuf.Int64Value\"\000BA\n\036org.my" +
-      "ddd.java.distributed.apiB\035DistributedIdA" +
-      "pplicationProtoP\001b\006proto3"
-    };
-    descriptor = com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.EmptyProto.getDescriptor(),
-          com.google.protobuf.WrappersProto.getDescriptor(),
-        });
-    com.google.protobuf.EmptyProto.getDescriptor();
-    com.google.protobuf.WrappersProto.getDescriptor();
-  }
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
 
-  // @@protoc_insertion_point(outer_class_scope)
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
+
+    static {
+        String[] descriptorData = {
+                "\n\034DistributedApplication.proto\022%org.mydd" +
+                        "d.distributed.distributed.api\032\033google/pr" +
+                        "otobuf/empty.proto\032\036google/protobuf/wrap" +
+                        "pers.proto2b\n\030DistributedIdApplication\022F" +
+                        "\n\rdistributedId\022\026.google.protobuf.Empty\032" +
+                        "\033.google.protobuf.Int64Value\"\000BA\n\036org.my" +
+                        "ddd.java.distributed.apiB\035DistributedIdA" +
+                        "pplicationProtoP\001b\006proto3"
+        };
+        descriptor = com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                                com.google.protobuf.EmptyProto.getDescriptor(),
+                                com.google.protobuf.WrappersProto.getDescriptor(),
+                        });
+        com.google.protobuf.EmptyProto.getDescriptor();
+        com.google.protobuf.WrappersProto.getDescriptor();
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }
