@@ -1,4 +1,13 @@
-import org.springframework.boot.gradle.tasks.bundling.BootJar
+buildscript {
+
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath("com.google.protobuf:protobuf-gradle-plugin:0.8.17")
+    }
+}
+
 
 plugins {
     java
@@ -15,6 +24,10 @@ extra["slf4jVersion"] = "1.7.30"
 extra["spring.boot"] = "2.5.3"
 extra["myddd_version"] = "1.3.0-SNAPSHOT"
 extra["h2_version"] = "1.4.200"
+extra["protobuf-java"] = "3.17.3"
+extra["annotation-api"] = "1.3.2"
+
+
 group = "org.myddd.java.test"
 version = extra["projectVersion"]!!
 

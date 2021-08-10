@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder/>
+
+    <dubbo:application name="document-provider"/>
+
+    <dubbo:protocol port="-1" name="dubbo"/>
+    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />
+
+    <dubbo:provider token="true"/>
+
+    <bean id="distributedApplication" class="org.myddd.java.distributed.application.DistributedIdApplicationImpl"/>
+    <dubbo:service interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedApplication"/>
+
+</beans>
