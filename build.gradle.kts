@@ -18,7 +18,7 @@ plugins {
 val projectVersion = "1.0.0-SNAPSHOT"
 
 extra["dubbo_version"] = "3.0.1"
-
+extra["dubbo_serialization_version"] = "2.7.13"
 extra["projectVersion"] = projectVersion
 extra["slf4jVersion"] = "1.7.30"
 extra["spring.boot"] = "2.5.3"

@@ -23,15 +23,12 @@ dependencies {
     implementation("org.myddd:myddd-persistence-jpa:${rootProject.extra["myddd_version"]}")
 
     implementation("org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final")
-    implementation("org.apache.dubbo:dubbo-serialization-protobuf:2.7.13")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")
     testImplementation("com.h2database:h2:${rootProject.extra["h2_version"]}")
     testImplementation(project(":distributed-id:distributed-id-infra"))
 
     testImplementation("org.apache.dubbo:dubbo:${rootProject.extra["dubbo_version"]}")
-
-
 }
 
 
