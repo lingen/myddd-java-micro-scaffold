@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ImportResource;
 @SpringBootApplication
 @ComponentScan(basePackages = {"org.myddd","org.myddd.java.document"})
 @EntityScan(basePackages = {"org.myddd","org.myddd.java.document"})
-@ImportResource("classpath:META-INF/distributed-provider.xml")
+@ImportResource({"classpath:META-INF/document-provider.xml","classpath:META-INF/distributed-local-bean.xml"})
 public class Application {
 
     public static void main(String[] args) {

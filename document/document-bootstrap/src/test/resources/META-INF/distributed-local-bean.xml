@@ -6,6 +6,7 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder/>
 
+    <!--  测试环境下，使用本地引用的方式  -->
     <bean id="iDGenerate" class="org.myddd.java.distributed.application.SnowflakeGenerateApplication"/>
 
 </beans>
