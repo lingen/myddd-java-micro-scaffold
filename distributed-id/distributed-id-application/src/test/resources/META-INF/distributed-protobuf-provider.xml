@@ -15,6 +15,6 @@
     <dubbo:provider token="true"/>
 
     <bean id="distributedApplication" class="org.myddd.java.distributed.application.DistributedIdApplicationImpl"/>
-    <dubbo:service interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedApplication"/>
+    <dubbo:service serialization="protobuf" interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedApplication"/>
 
 </beans>
