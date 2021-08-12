@@ -19,6 +19,7 @@ dependencies {
     testImplementation("org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final")
     testImplementation("com.h2database:h2:${rootProject.extra["h2_version"]}")
     testImplementation(project(":document:document-infra"))
+    testImplementation("org.myddd:myddd-distributed-id:${rootProject.extra["myddd_version"]}")
 
     testImplementation(project(":distributed-id:distributed-id-application"))
 

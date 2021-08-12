@@ -28,6 +28,7 @@ dependencies {
     implementation("org.apache.dubbo:dubbo-serialization-protobuf:${rootProject.extra["dubbo_serialization_version"]}")
 
 
+    testImplementation("org.myddd:myddd-distributed-id:${rootProject.extra["myddd_version"]}")
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")
     testImplementation("com.h2database:h2:${rootProject.extra["h2_version"]}")
     testImplementation(project(":document:document-infra"))
