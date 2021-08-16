@@ -17,6 +17,7 @@ dependencies {
     implementation(project(":document:document-infra"))
     implementation(project(":document:document-api"))
     implementation(project(":document:document-application"))
+    api(project(":distributed-id:distributed-id-api"))
 
     implementation("org.springframework.boot:spring-boot-starter-web:${rootProject.extra["spring.boot"]}")
 
@@ -25,7 +26,6 @@ dependencies {
     implementation("org.myddd:myddd-ioc-spring:${rootProject.extra["myddd_version"]}")
 
     implementation("org.apache.dubbo:dubbo:${rootProject.extra["dubbo_version"]}")
-    implementation("org.myddd:myddd-distributed-id:${rootProject.extra["myddd_version"]}")
 
     //如需使用MYSQL，需更换依赖
     implementation("com.h2database:h2:${rootProject.extra["h2_version"]}")
@@ -38,5 +38,6 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")
     testImplementation("org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final")
     testImplementation(project(":distributed-id:distributed-id-application"))
+
 
 }

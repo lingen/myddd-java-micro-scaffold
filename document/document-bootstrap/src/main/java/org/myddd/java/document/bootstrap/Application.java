@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"org.myddd"})
+@ComponentScan(basePackages = {"org.myddd","org.myddd.java.document"})
 @EntityScan(basePackages = {"org.myddd","org.myddd.java.document"})
 @ImportResource("classpath:META-INF/document-provider.xml")
 public class Application {
