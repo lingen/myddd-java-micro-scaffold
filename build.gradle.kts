@@ -26,7 +26,7 @@ extra["myddd_version"] = "1.3.0-SNAPSHOT"
 extra["h2_version"] = "1.4.200"
 extra["protobuf-java"] = "3.17.3"
 extra["annotation-api"] = "1.3.2"
-
+extra["mysql_jdbc"] = "8.0.24"
 
 group = "org.myddd.java.test"
 version = extra["projectVersion"]!!
