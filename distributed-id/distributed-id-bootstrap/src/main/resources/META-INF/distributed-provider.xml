@@ -9,10 +9,9 @@
 
     <dubbo:application name="distributed-provider"/>
 
+<!--    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />-->
+    <dubbo:registry address="nacos://172.16.1.12:8848" />
     <dubbo:protocol port="-1" name="dubbo"/>
-    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />
-
-    <dubbo:provider token="true"/>
 
     <bean id="distributedIdApplication" class="org.myddd.java.distributed.application.DistributedIdApplicationImpl"/>
     <dubbo:service  serialization="protobuf" interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedIdApplication"/>

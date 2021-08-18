@@ -21,6 +21,7 @@ dependencies {
 
 
     api("org.apache.dubbo:dubbo:${rootProject.extra["dubbo_version"]}")
+    implementation("org.apache.dubbo:dubbo-registry-nacos:${rootProject.extra["dubbo_version"]}")
 
     implementation("javax.xml.bind:jaxb-api:2.3.0")
     implementation("com.sun.xml.bind:jaxb-impl:2.3.0")

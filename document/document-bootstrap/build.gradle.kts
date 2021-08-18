@@ -26,6 +26,9 @@ dependencies {
     implementation("org.myddd:myddd-ioc-spring:${rootProject.extra["myddd_version"]}")
 
     implementation("org.apache.dubbo:dubbo:${rootProject.extra["dubbo_version"]}")
+    implementation("org.apache.dubbo:dubbo-registry-nacos:${rootProject.extra["dubbo_version"]}")
+
+    implementation("mysql:mysql-connector-java:${rootProject.extra["mysql_jdbc"]}")
 
     //如需使用MYSQL，需更换依赖
     implementation("com.h2database:h2:${rootProject.extra["h2_version"]}")
