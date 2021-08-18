@@ -14,6 +14,6 @@
     <dubbo:protocol port="-1" name="dubbo"/>
 
     <bean id="distributedIdApplication" class="org.myddd.java.distributed.application.DistributedIdApplicationImpl"/>
-    <dubbo:service  serialization="protobuf" interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedIdApplication"/>
+    <dubbo:service  serialization="protobuf" interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedIdApplication" timeout="300" retries="2" loadbalance="random" actives="0"/>
 
 </beans>

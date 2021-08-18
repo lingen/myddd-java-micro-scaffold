@@ -18,7 +18,7 @@
     <dubbo:provider token="true"/>
 
     <bean id="documentApplication" class="org.myddd.java.document.application.DocumentApplicationImpl"/>
-    <dubbo:service interface="org.myddd.java.document.api.DocumentApplication" ref="documentApplication"/>
+    <dubbo:service interface="org.myddd.java.document.api.DocumentApplication" ref="documentApplication" timeout="30000" retries="2" loadbalance="random" actives="0"/>
 
 <!--    <dubbo:reference protocol="protobuf" check="false" id="distributedIdApplication" interface="org.myddd.java.distributed.api.DistributedIdApplication"/>-->
 
