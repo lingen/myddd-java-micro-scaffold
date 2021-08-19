@@ -23,6 +23,8 @@ dependencies {
     implementation("org.myddd:myddd-domain:${rootProject.extra["myddd_version"]}")
     implementation("org.myddd:myddd-ioc-spring:${rootProject.extra["myddd_version"]}")
 
+    implementation("org.myddd:myddd-rest-advice:${rootProject.extra["myddd_version"]}")
+
     implementation("mysql:mysql-connector-java:${rootProject.extra["mysql_jdbc"]}")
 
     implementation("javax.xml.bind:jaxb-api:2.3.0")
