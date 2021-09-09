@@ -6,7 +6,7 @@ import "google/protobuf/wrappers.proto";
 option java_multiple_files = true;
 option java_package = "org.myddd.java.distributed.api";
 option java_outer_classname = "DistributedIdApplicationProto";
-package org.myddd.distributed.distributed.api;
+package org.myddd.vertx.distributed.api;
 
 service DistributedIdApplication {
   rpc distributedId(google.protobuf.Empty) returns (google.protobuf.Int64Value) {}

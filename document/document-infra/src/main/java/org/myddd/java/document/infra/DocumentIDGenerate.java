@@ -1,4 +1,4 @@
-package org.myddd.java.document.domain.core;
+package org.myddd.java.document.infra;
 
 import com.google.protobuf.Empty;
 import org.myddd.domain.IDGenerate;

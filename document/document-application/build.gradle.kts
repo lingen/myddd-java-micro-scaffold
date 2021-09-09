@@ -2,7 +2,6 @@ import com.google.protobuf.gradle.*
 
 plugins {
     `java-library`
-    id("com.google.protobuf")
 }
 
 group = "org.myddd.java.document"
@@ -28,31 +27,9 @@ dependencies {
     implementation("org.apache.dubbo:dubbo-serialization-protobuf:${rootProject.extra["dubbo_serialization_version"]}")
 
 
-    testImplementation("org.myddd:myddd-distributed-id:${rootProject.extra["myddd_version"]}")
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")
     testImplementation("com.h2database:h2:${rootProject.extra["h2_version"]}")
     testImplementation(project(":document:document-infra"))
+    testImplementation(project(":distributed-id:distributed-id-application"))
 
-}
-
-sourceSets.main {
-    proto.srcDir("src/main/protobuf")
-}
-
-protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:${rootProject.extra["protobuf-java"]}"
-    }
-    plugins {
-        id("myddd-dubbo") {
-            artifact = "org.myddd.plugin:dubbo-protobuf-gradle-plugin:0.0.5"
-        }
-    }
-    generateProtoTasks {
-        ofSourceSet("main").forEach {
-            it.plugins {
-                id("myddd-dubbo")
-            }
-        }
-    }
 }

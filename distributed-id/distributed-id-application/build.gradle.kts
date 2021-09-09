@@ -1,8 +1,5 @@
-import com.google.protobuf.gradle.*
-
 plugins {
     `java-library`
-    id("com.google.protobuf")
 }
 
 group = "org.myddd.java.distributed"
@@ -29,28 +26,4 @@ dependencies {
     testImplementation(project(":distributed-id:distributed-id-infra"))
 
     testImplementation("org.apache.dubbo:dubbo:${rootProject.extra["dubbo_version"]}")
-}
-
-
-
-sourceSets.main {
-    proto.srcDir("src/main/protobuf")
-}
-
-protobuf {
-    protoc {
-        artifact = "com.google.protobuf:protoc:${rootProject.extra["protobuf-java"]}"
-    }
-    plugins {
-        id("myddd-dubbo") {
-            artifact = "org.myddd.plugin:dubbo-protobuf-gradle-plugin:0.0.5"
-        }
-    }
-    generateProtoTasks {
-        ofSourceSet("main").forEach {
-            it.plugins {
-                id("myddd-dubbo")
-            }
-        }
-    }
 }
