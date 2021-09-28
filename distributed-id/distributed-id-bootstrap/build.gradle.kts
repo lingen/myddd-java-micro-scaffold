@@ -22,6 +22,7 @@ dependencies {
     implementation("org.myddd:myddd-utils:${rootProject.extra["myddd_version"]}")
     implementation("org.myddd:myddd-domain:${rootProject.extra["myddd_version"]}")
     implementation("org.myddd:myddd-ioc-spring:${rootProject.extra["myddd_version"]}")
+    implementation("org.myddd:myddd-dubbo-filter:${rootProject.extra["myddd_version"]}")
 
     implementation("org.apache.dubbo:dubbo:${rootProject.extra["dubbo_version"]}")
     implementation("org.apache.dubbo:dubbo-registry-nacos:${rootProject.extra["dubbo_version"]}")

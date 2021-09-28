@@ -10,9 +10,10 @@
     <dubbo:application name="document-provider"/>
 
     <dubbo:protocol port="-1" name="dubbo"/>
-<!--    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />-->
+    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />
+    <dubbo:provider token="false" filter="-exception,mydddExceptionFilter"/>
 
-    <dubbo:registry address="${nacos.address}" />
+<!--    <dubbo:registry address="${nacos.address}" />-->
 
 
     <dubbo:provider token="true"/>
