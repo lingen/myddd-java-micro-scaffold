@@ -33,8 +33,7 @@ public class DocumentAssembler {
 
     public Document toEntity(DocumentDTO dto){
         Document document = new Document();
-        document.setId(dto.getId());
-        document.setVersion(dto.getVersion());
+        if(dto.getId() > 0) document.setId(dto.getId());
         document.setCreated(dto.getCreated());
         document.setDeleted(dto.isDelete());
         document.setMd5(dto.getMd5());

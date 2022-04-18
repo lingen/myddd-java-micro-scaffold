@@ -3,9 +3,7 @@ package org.myddd.java.document.api.dto;
 import java.io.Serializable;
 
 public class DocumentDTO implements Serializable {
-
-
-    private Long id;
+    private long id;
 
     private int version;
 
@@ -31,11 +29,11 @@ public class DocumentDTO implements Serializable {
 
     private String remark;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

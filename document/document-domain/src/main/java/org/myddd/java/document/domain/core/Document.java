@@ -1,9 +1,8 @@
 package org.myddd.java.document.domain.core;
 
+import com.google.common.base.Preconditions;
 import org.myddd.domain.BaseDistributedEntity;
-import org.myddd.domain.BaseIDEntity;
 import org.myddd.domain.InstanceFactory;
-import org.myddd.utils.Assert;
 
 import javax.persistence.*;
 import java.util.List;
@@ -159,14 +158,14 @@ public class Document extends BaseDistributedEntity {
     }
 
     public Document createDocument(){
-        Assert.notNull(this.mediaId,"媒体ID不能为空");
-        Assert.notNull(this.name,"文件名不能为空");
+        Preconditions.checkNotNull(this.mediaId,"媒体ID不能为空");
+        Preconditions.checkNotNull(this.name,"文件名不能为空");
         this.type = DocumentType.FILE;
 
         if(Objects.nonNull(this.getParentId())){
             Document parentDir = Document.getDocumentRepository().get(Document.class,this.getParentId());
-            Assert.notNull(parentDir,"指定的父目录不存在");
-            Assert.isTrue(parentDir.getType() == DocumentType.DIR,"指定的父目录不能为文件");
+            Preconditions.checkNotNull(parentDir,"指定的父目录不存在");
+            Preconditions.checkArgument(parentDir.getType() == DocumentType.DIR,"指定的父目录不能为文件");
         }
         return getDocumentRepository().createDocument(this);
     }
@@ -181,7 +180,7 @@ public class Document extends BaseDistributedEntity {
 
 
     public static Document createSubDir(Long parentId, String name){
-        Assert.isTrue(getDocumentRepository().exists(Document.class,parentId),"父目录不存在，请检查");
+        Preconditions.checkArgument(getDocumentRepository().exists(Document.class,parentId),"父目录不存在，请检查");
 
         Document document = new Document();
         document.type = DocumentType.DIR;
@@ -192,7 +191,7 @@ public class Document extends BaseDistributedEntity {
     }
 
     public static void deleteDocument(Long documentId){
-        Assert.notNull(documentId,"文档ID不能为空");
+        Preconditions.checkNotNull(documentId,"文档ID不能为空");
 
         Document document = getDocumentRepository().queryDocumentByID(documentId);
         if(Objects.nonNull(document)){
@@ -204,11 +203,11 @@ public class Document extends BaseDistributedEntity {
 
     public Document updateNewVersion(){
         Document originDocument = Document.getDocumentRepository().queryDocumentByID(this.getId());
-        Assert.notNull(originDocument,"找不到原文档");
+        Preconditions.checkNotNull(originDocument,"找不到原文档");
 
         DocumentHistory documentHistory = DocumentHistory.createHistory(originDocument);
         DocumentHistory history =  getDocumentRepository().save(documentHistory);
-        Assert.notNull(history);
+        Preconditions.checkNotNull(history);
 
         originDocument.setMediaId(mediaId);
         originDocument.setMd5(md5);

@@ -4,7 +4,7 @@ import org.myddd.java.document.domain.core.Document;
 import org.myddd.java.document.domain.core.DocumentHistory;
 import org.myddd.java.document.domain.core.DocumentRepository;
 import org.myddd.java.document.domain.core.DocumentSpace;
-import org.myddd.domain.AbstractRepositoryJPA;
+import org.myddd.persistence.jpa.AbstractRepositoryJPA;
 
 import javax.inject.Named;
 import java.util.List;
@@ -14,22 +14,25 @@ public class DocumentRepositoryJPA extends AbstractRepositoryJPA implements Docu
     @Override
     public DocumentSpace createDocumentSpace(DocumentSpace documentSpace) {
         documentSpace.setCreated(System.currentTimeMillis());
-        return getEntityRepository().save(documentSpace);
+        return save(documentSpace);
     }
 
     @Override
     public Document createDocument(Document document) {
         document.setCreated(System.currentTimeMillis());
-        return getEntityRepository().save(document);
+        return save(document);
     }
 
     @Override
     public Document queryDocumentByID(Long documentId) {
-        return getEntityRepository().get(Document.class,documentId);
+        return get(Document.class,documentId);
     }
 
     @Override
     public List<DocumentHistory> queryHistories(Long documentId) {
-        return getEntityRepository().createCriteriaQuery(DocumentHistory.class).eq("document.id",documentId).list();
+        return getEntityManager()
+                .createQuery("from DocumentHistory where document.id =:documentId",DocumentHistory.class)
+                .setParameter("documentId",documentId)
+                .getResultList();
     }
 }

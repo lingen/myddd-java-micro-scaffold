@@ -4,7 +4,6 @@ import org.myddd.java.document.api.DocumentApplication;
 import org.myddd.java.document.api.dto.DocumentDTO;
 import org.myddd.java.document.api.dto.DocumentHistoryDTO;
 import org.myddd.java.document.bootstrap.BaseResponse;
-import org.myddd.utils.Assert;
 import org.myddd.utils.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -64,7 +63,6 @@ public class DocumentController {
 
     @GetMapping(value = "/documents/search")
     public ResponseEntity<BaseResponse<Page<DocumentDTO>>> pageQueryDocumentsWithSearch(@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "10") int pageSize,@RequestParam(value = "text",defaultValue = "") String search){
-        Assert.notEmpty(search);
         return ResponseEntity.ok(BaseResponse.ok(documentApplication.pageSearchDocuments(search,page,pageSize)));
     }
 

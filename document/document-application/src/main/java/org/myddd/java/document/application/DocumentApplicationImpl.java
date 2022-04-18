@@ -1,5 +1,7 @@
 package org.myddd.java.document.application;
 
+import com.google.common.base.Preconditions;
+import com.google.common.base.Strings;
 import org.myddd.java.document.api.DocumentApplication;
 import org.myddd.java.document.api.dto.DocumentDTO;
 import org.myddd.java.document.api.dto.DocumentHistoryDTO;
@@ -10,17 +12,14 @@ import org.myddd.java.document.domain.core.DocumentHistory;
 import org.myddd.java.document.domain.core.DocumentType;
 
 import org.myddd.querychannel.QueryChannelService;
-import org.myddd.utils.Assert;
 import org.myddd.utils.Page;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class DocumentApplicationImpl implements DocumentApplication {
-
 
     @Inject
     private QueryChannelService queryChannelService;
@@ -31,11 +30,10 @@ public class DocumentApplicationImpl implements DocumentApplication {
     @Inject
     private DocumentHistoryAssembler documentHistoryAssembler;
 
-
     @Override
     @Transactional
     public DocumentDTO createRootDir(String name) {
-        Assert.notEmpty(name,"文件名不能为空");
+        Preconditions.checkArgument(!Strings.isNullOrEmpty(name),"文件名不能为空");
         Document createdDIRDocument = Document.createRootDir(name);
         return documentAssembler.toDTO(createdDIRDocument);
     }
@@ -43,8 +41,8 @@ public class DocumentApplicationImpl implements DocumentApplication {
     @Override
     @Transactional
     public DocumentDTO createSubDir(Long parentId, String name) {
-        Assert.notEmpty(name,"文件名不能为空");
-        Assert.notNull(parentId,"指定的父文件夹为空");
+        Preconditions.checkArgument(!Strings.isNullOrEmpty(name),"文件名不能为空");
+        Preconditions.checkNotNull(parentId,"指定的父文件夹为空");
         Document createdDIRDocument = Document.createSubDir(parentId,name);
         return documentAssembler.toDTO(createdDIRDocument);
     }
@@ -75,7 +73,7 @@ public class DocumentApplicationImpl implements DocumentApplication {
     @Override
     @Transactional
     public void deleteDocument(Long documentId) {
-        Assert.notNull(documentId,"要删除的文档ID不能为空");
+        Preconditions.checkNotNull(documentId,"要删除的文档ID不能为空");
         Document.deleteDocument(documentId);
     }
 
@@ -83,45 +81,45 @@ public class DocumentApplicationImpl implements DocumentApplication {
     public Page<DocumentDTO> pageSearchDocuments(String search, int page, int pageSize) {
         String sql = "from Document where name like ?1 and type = ?2 and deleted = false order by created desc";
         Page<Document> documentPage = queryChannelService
-                .createJpqlQuery(sql)
+                .createJpqlQuery(sql,Document.class)
                 .setParameters("%"+search+"%", DocumentType.FILE)
                 .setPage(page,pageSize)
                 .pagedList();
-        return Page.builder()
+        return Page.builder(DocumentDTO.class)
                 .data(documentPage.getData().stream().map(it -> documentAssembler.toDTO(it)).collect(Collectors.toList()))
                 .pageSize(pageSize)
                 .totalSize(documentPage.getResultCount())
-                .stat(documentPage.getStart());
+                .start(documentPage.getStart());
     }
 
     @Override
     public Page<DocumentDTO> pageQueryRootDocuments(int page, int pageSize) {
         String sql = "from Document where deleted = false and parentId is null order by created desc";
         Page<Document> documentPage = queryChannelService
-                .createJpqlQuery(sql)
+                .createJpqlQuery(sql,Document.class)
                 .setPage(page,pageSize)
                 .pagedList();
-        return Page.builder()
+        return Page.builder(DocumentDTO.class)
                 .data(documentPage.getData().stream().map(it -> documentAssembler.toDTO(it)).collect(Collectors.toList()))
                 .pageSize(pageSize)
                 .totalSize(documentPage.getResultCount())
-                .stat(documentPage.getStart());
+                .start(documentPage.getStart());
     }
 
     @Override
     public Page<DocumentDTO> pageQuerySubDocuments(Long parentId, int page, int pageSize) {
-        Assert.notNull(parentId,"父ID不能为空");
+        Preconditions.checkNotNull(parentId,"父ID不能为空");
         String sql = "from Document where deleted = false and parentId = ?1 order by created desc";
         Page<Document> documentPage = queryChannelService
-                .createJpqlQuery(sql)
+                .createJpqlQuery(sql,Document.class)
                 .setParameters(parentId)
                 .setPage(page,pageSize)
                 .pagedList();
-        return Page.builder()
+        return Page.builder(DocumentDTO.class)
                 .data(documentPage.getData().stream().map(it -> documentAssembler.toDTO(it)).collect(Collectors.toList()))
                 .pageSize(pageSize)
                 .totalSize(documentPage.getResultCount())
-                .stat(documentPage.getStart());
+                .start(documentPage.getStart());
     }
 
     @Override
