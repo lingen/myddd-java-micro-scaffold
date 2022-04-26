@@ -35,8 +35,8 @@ dependencies {
     implementation("com.h2database:h2:${rootProject.extra["h2_version"]}")
 
     implementation("javax.xml.bind:jaxb-api:2.3.0")
-    implementation("com.sun.xml.bind:jaxb-impl:2.3.0")
-    implementation("com.sun.xml.bind:jaxb-core:2.3.0")
+    implementation("com.sun.xml.bind:jaxb-impl:2.3.6")
+    implementation("org.glassfish.jaxb:jaxb-runtime:2.3.6")
     implementation("javax.activation:activation:1.1.1")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")

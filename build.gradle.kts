@@ -24,7 +24,7 @@ extra["projectVersion"] = projectVersion
 extra["slf4jVersion"] = "1.7.30"
 extra["spring.boot"] = "2.6.6"
 extra["junit.version"] = "5.8.2"
-extra["myddd_version"] = "2.0.2-alpha3"
+extra["myddd_version"] = "0.2.2-alpha1"
 extra["h2_version"] = "1.4.200"
 extra["protobuf-java"] = "3.19.1"
 extra["annotation-api"] = "1.3.2"
@@ -92,6 +92,13 @@ subprojects {
 
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
+    }
+
+    allprojects {
+        tasks.withType<JavaCompile> {
+            sourceCompatibility = "17"
+            targetCompatibility = "17"
+        }
     }
 
     //默认测试依赖

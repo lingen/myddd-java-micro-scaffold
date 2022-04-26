@@ -24,8 +24,8 @@ dependencies {
     implementation("org.apache.dubbo:dubbo-registry-nacos:${rootProject.extra["dubbo_version"]}")
 
     implementation("javax.xml.bind:jaxb-api:2.3.0")
-    implementation("com.sun.xml.bind:jaxb-impl:2.3.0")
-    implementation("com.sun.xml.bind:jaxb-core:2.3.0")
+    implementation("com.sun.xml.bind:jaxb-impl:2.3.6")
+    implementation("org.glassfish.jaxb:jaxb-runtime:2.3.6")
     implementation("javax.activation:activation:1.1.1")
 
 
