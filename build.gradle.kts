@@ -11,21 +11,20 @@ buildscript {
 plugins {
     java
     `java-library`
-    id("org.springframework.boot") version "2.6.6"
+    id("org.springframework.boot") version "2.7.1"
     id("jacoco")
     id("org.sonarqube") version "3.3"
 }
 
 val projectVersion = "1.0.0-SNAPSHOT"
 
-extra["dubbo_version"] = "3.0.1"
-extra["dubbo_serialization_version"] = "2.7.13"
+extra["dubbo_version"] = "3.0.9"
 extra["projectVersion"] = projectVersion
-extra["slf4jVersion"] = "1.7.30"
-extra["spring.boot"] = "2.6.6"
+extra["slf4jVersion"] = "1.7.36"
+extra["spring.boot"] = "2.7.1"
 extra["junit.version"] = "5.8.2"
-extra["myddd_version"] = "0.2.2-alpha1"
-extra["h2_version"] = "1.4.200"
+extra["myddd_version"] = "0.3.2-ALPHA"
+extra["h2_version"] = "2.1.214"
 extra["protobuf-java"] = "3.19.1"
 extra["annotation-api"] = "1.3.2"
 extra["mysql_jdbc"] = "8.0.26"
@@ -96,8 +95,8 @@ subprojects {
 
     allprojects {
         tasks.withType<JavaCompile> {
-            sourceCompatibility = "17"
-            targetCompatibility = "17"
+            sourceCompatibility = "11"
+            targetCompatibility = "11"
         }
     }
 

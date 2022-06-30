@@ -10,14 +10,10 @@
     <dubbo:application name="rest-micro-consumer"/>
 
     <dubbo:protocol port="-1" name="dubbo"/>
-<!--    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />-->
 
-    <dubbo:registry address="nacos://172.16.1.12:8848" />
+    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />
 
     <dubbo:provider token="true"/>
-
     <dubbo:reference id="documentApplication" check="false" interface="org.myddd.java.document.api.DocumentApplication"/>
-
-    <dubbo:reference id="distributedApplication" check="false" interface="org.myddd.java.distributed.api.DistributedIdApplication"/>
-
+    <dubbo:reference id="distributedIdApplication" check="false" interface="org.myddd.java.distributed.api.DistributedIdApplication"/>
 </beans>

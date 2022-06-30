@@ -7,21 +7,19 @@
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder/>
 
-    <dubbo:application name="document-provider"/>
+    <dubbo:application name="document-provider">
+        <dubbo:parameter key="unicast" value="false" />
+    </dubbo:application>
 
     <dubbo:protocol port="-1" name="dubbo"/>
+
+
     <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />
-    <dubbo:provider token="false" filter="-exception,mydddExceptionFilter"/>
-
-<!--    <dubbo:registry address="${nacos.address}" />-->
-
 
     <dubbo:provider token="true"/>
 
+    <dubbo:reference id="distributedIdApplication" check="true" interface="org.myddd.java.distributed.api.DistributedIdApplication" version="1.0"/>
+
     <bean id="documentApplication" class="org.myddd.java.document.application.DocumentApplicationImpl"/>
-    <dubbo:service interface="org.myddd.java.document.api.DocumentApplication" ref="documentApplication" timeout="30000" retries="2" loadbalance="random" actives="0"/>
-
-<!--    <dubbo:reference protocol="protobuf" check="false" id="distributedIdApplication" interface="org.myddd.java.distributed.api.DistributedIdApplication"/>-->
-
-    <dubbo:reference id="distributedApplication" check="false" interface="org.myddd.java.distributed.api.DistributedIdApplication"/>
+    <dubbo:service interface="org.myddd.java.document.api.DocumentApplication" ref="documentApplication"/>
 </beans>

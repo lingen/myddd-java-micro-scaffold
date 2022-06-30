@@ -7,15 +7,17 @@
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder/>
 
-    <dubbo:application name="distributed-provider"/>
+    <dubbo:application name="distributed-provider">
+        <dubbo:parameter key="unicast" value="false" />
+    </dubbo:application>
 
-    <dubbo:provider token="false" filter="-exception,mydddExceptionFilter"/>
+    <dubbo:provider token="true"/>
 
-    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />
-<!--    <dubbo:registry address="nacos://172.16.1.12:8848" />-->
     <dubbo:protocol port="-1" name="dubbo"/>
 
+    <dubbo:registry protocol="multicast" address="224.5.6.7:1234" />
+
     <bean id="distributedIdApplication" class="org.myddd.java.distributed.application.DistributedIdApplicationImpl"/>
-    <dubbo:service  serialization="protobuf" interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedIdApplication" timeout="300" retries="2" loadbalance="random" actives="0"/>
+    <dubbo:service interface="org.myddd.java.distributed.api.DistributedIdApplication" ref="distributedIdApplication" version="1.0"/>
 
 </beans>

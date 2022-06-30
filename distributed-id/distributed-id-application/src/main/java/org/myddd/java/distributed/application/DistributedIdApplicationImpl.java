@@ -14,9 +14,4 @@ public class DistributedIdApplicationImpl implements DistributedIdApplication {
     public Int64Value distributedId(Empty request) {
         return Int64Value.of(snowflakeDistributeId.nextId());
     }
-
-    @Override
-    public CompletableFuture<Int64Value> distributedIdAsync(Empty request) {
-        return CompletableFuture.completedFuture(distributedId(request));
-    }
 }

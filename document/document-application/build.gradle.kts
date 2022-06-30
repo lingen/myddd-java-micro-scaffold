@@ -24,8 +24,6 @@ dependencies {
     implementation("org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final")
     implementation("com.google.protobuf:protobuf-java:${rootProject.extra["protobuf-java"]}")
     implementation("javax.annotation:javax.annotation-api:${rootProject.extra["annotation-api"]}")
-    implementation("org.apache.dubbo:dubbo-serialization-protobuf:${rootProject.extra["dubbo_serialization_version"]}")
-
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:${rootProject.extra["spring.boot"]}")
     testImplementation("com.h2database:h2:${rootProject.extra["h2_version"]}")

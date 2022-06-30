@@ -27,7 +27,7 @@ dependencies {
     implementation("org.myddd:myddd-dubbo-filter:${rootProject.extra["myddd_version"]}")
 
     implementation("org.apache.dubbo:dubbo:${rootProject.extra["dubbo_version"]}")
-    implementation("org.apache.dubbo:dubbo-registry-nacos:${rootProject.extra["dubbo_version"]}")
+    implementation("com.alibaba.spring:spring-context-support:1.0.11")
 
     implementation("mysql:mysql-connector-java:${rootProject.extra["mysql_jdbc"]}")
 
